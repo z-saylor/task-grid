@@ -10,24 +10,32 @@
     margin-top: 100px;
 }
 
-.grid-cell {
+.grid-cell{
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.45);
 }
 
+.grid-cell:not(.active){
+    box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.25);
+}
+.grid-cell.active {
+    box-shadow: 0px 0px 6px 4px #ffb703;
+}
+
+
 .grid-number {
-    background-color: var(--color-white);
+   /* background-color: var(--color-white);
     padding: 3px 12px;
-    border-radius: 5px;
+    border-radius: 5px; 
+    box-shadow: inset -1px 1px 3px 1px rgba(0, 0, 0, 0.25);*/
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
-    font-family: 'Lexend-Extra-Light';
-    box-shadow: inset -1px 1px 3px rgba(0, 0, 0, 0.55);
+    font-size: 35px;
+    font-family: 'Lexend-Light';
+    color: var(--color-white);
 }
 
 .mini-grid {

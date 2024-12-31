@@ -19,6 +19,9 @@ function buildGrid() {
             gridCellDiv.dataset.column = j;
             gridNumberDiv.dataset.row = i;
             gridNumberDiv.dataset.column = j;
+            if (i==2 && j==0) {
+                gridCellDiv.classList.add("active");
+            }
             gridNumberDiv.textContent = ((i+4)*j).toString();
             gridCellDiv.appendChild(gridNumberDiv);
             gridDiv.appendChild(gridCellDiv);
