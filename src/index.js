@@ -4,7 +4,6 @@ import {Task, TaskList} from "./task-module/task-module.js";
 
 GridModule.buildMiniGrid();
 
-let gridActive = false;
 let currentContent = "tasks";
 
 const contentDiv = document.querySelector(".content");
