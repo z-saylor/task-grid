@@ -1,0 +1,80 @@
+.task-content {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 14px;
+}
+
+.task-header {
+    display: grid;
+    grid-template-columns: 20px 1fr 60px 60px 90px 30px 20px;
+    gap: 15px;
+    padding: 0px 5px;
+    font-family: 'Lexend-Heavy';
+    color: var(--color-medium-gray);
+    margin-bottom: -6px;
+    margin-top: 20px;
+}
+
+.task {
+    display: grid;
+    grid-template-columns: 20px 1fr 60px 60px 90px 30px 20px;
+    gap: 15px;
+    box-shadow: -2px 2px 6px 2px rgba(0, 0, 0, 0.101);
+    padding: 11px 5px;
+    border-radius: 5px;
+    align-items: center;
+    color: var(--color-medium-gray);
+}
+
+.task-checkbox {
+    height: 12px;
+    width: 12px;
+    border-style: solid;
+    margin-left: 5px;
+    border-color: var(--color-medium-gray);
+    border-width: 1.75px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.task-checkbox:hover {
+    transform: scale(1.1);
+}
+
+.task-name {
+    font-size: 15px;
+}
+
+.low {
+    color: var(--color-light-gray);
+    font-size: 14px;
+}
+.med {
+    color: var(--color-medium-gray);
+    font-size: 14px;
+}
+.high {
+    color: var(--color-theme-three);
+    font-family: 'Lexend-Heavy';
+    font-size: 14px;
+}
+
+.task-edit {
+    cursor: pointer;
+}
+.task-edit:hover {
+    transform: scale(1.1);
+    color: var(--color-dark-gray);
+}
+
+.task-delete {
+    cursor: pointer;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: rgb(181, 3, 3);
+}
+.task-delete:hover {
+    transform: scale(1.2);
+}

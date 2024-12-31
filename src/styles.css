@@ -15,9 +15,16 @@
     font-weight: 250;
 }
 
+@font-face {
+    font-family: 'Lexend-Heavy';
+    src: url('./fonts/Lexend-VariableFont_wght.ttf');
+    font-weight: 600;
+}
+
 body {
     --color-white: #FFFCF2;
     --color-light-gray: #CCC5B9;
+    --color-medium-gray: #69655e;
     --color-dark-gray: #403D39;
     --color-black: #252422;
     --color-theme-one: #05668D;
@@ -60,10 +67,23 @@ body {
     justify-content: space-between;
     height: 100px;
     max-width: 800px;
-    min-width: 420px;
+    min-width: 600px;
     align-items: center;
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.add-task {
+    cursor: pointer;
+    background-color: var(--color-theme-three);
+    color: var(--color-white);
+    padding: 4px 8px;
+    border-radius: 4px;
+    
+}
+.add-task:hover {
+    background-color: var(--color-theme-two);
+    transform: scale(1.1);
 }
 
 .logo h1 {
@@ -74,15 +94,19 @@ body {
     display: flex;
     justify-content: center;
     background-color: var(--color-white);
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
 }
 
 .content {
+    flex: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
     max-width: 800px;
-    min-width: 420px;
+    min-width: 600px;
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 30px;

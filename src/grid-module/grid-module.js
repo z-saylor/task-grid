@@ -5,42 +5,46 @@
 
 import "./grid-module.css";
 
-function buildGrid() {
-    const gridDiv = document.querySelector(".grid-module");
+export class GridModule {
+    constructor() {}
 
-    //add grid elements with initial blank values
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            const gridCellDiv = document.createElement("div");
-            const gridNumberDiv = document.createElement("div");
-            gridCellDiv.classList.add("grid-cell");
-            gridNumberDiv.classList.add("grid-number");
-            gridCellDiv.dataset.row = i;
-            gridCellDiv.dataset.column = j;
-            gridNumberDiv.dataset.row = i;
-            gridNumberDiv.dataset.column = j;
-            if (i==2 && j==0) {
-                gridCellDiv.classList.add("active");
+    static buildGrid() {
+        const contentDiv = document.querySelector(".content");
+        const gridDiv = document.createElement("div");
+        gridDiv.classList.add("grid-module");
+        contentDiv.appendChild(gridDiv);
+
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                const gridCellDiv = document.createElement("div");
+                const gridNumberDiv = document.createElement("div");
+                gridCellDiv.classList.add("grid-cell");
+                gridNumberDiv.classList.add("grid-number");
+                gridCellDiv.dataset.row = i;
+                gridCellDiv.dataset.column = j;
+                gridNumberDiv.dataset.row = i;
+                gridNumberDiv.dataset.column = j;
+                if (i==2 && j==0) {
+                    gridCellDiv.classList.add("active");
+                }
+                gridNumberDiv.textContent = ((i+4)*j).toString();
+                gridCellDiv.appendChild(gridNumberDiv);
+                gridDiv.appendChild(gridCellDiv);
             }
-            gridNumberDiv.textContent = ((i+4)*j).toString();
-            gridCellDiv.appendChild(gridNumberDiv);
-            gridDiv.appendChild(gridCellDiv);
+        }
+    }
+
+    static buildMiniGrid() {
+        const miniGridDiv = document.querySelector(".mini-grid");
+
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                const miniGridCellDiv = document.createElement("div");
+                miniGridCellDiv.classList.add("mini-grid-cell");
+                miniGridCellDiv.dataset.row = i;
+                miniGridCellDiv.dataset.column = j;;
+                miniGridDiv.appendChild(miniGridCellDiv);
+            }
         }
     }
 }
-
-function buildMiniGrid() {
-    const miniGridDiv = document.querySelector(".mini-grid");
-
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            const miniGridCellDiv = document.createElement("div");
-            miniGridCellDiv.classList.add("mini-grid-cell");
-            miniGridCellDiv.dataset.row = i;
-            miniGridCellDiv.dataset.column = j;;
-            miniGridDiv.appendChild(miniGridCellDiv);
-        }
-    }
-}
-
-export { buildGrid, buildMiniGrid }
