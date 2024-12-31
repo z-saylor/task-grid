@@ -1,4 +1,6 @@
 import "./styles.css";
-import {GridModule} from "./grid-module/grid-module.js";
+import {buildGrid, buildMiniGrid} from "./grid-module/grid-module.js";
 
-const sideBarGrid = new GridModule();
+//const sideBarGrid = new GridModule();
+buildGrid();
+buildMiniGrid();
