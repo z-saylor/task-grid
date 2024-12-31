@@ -15,18 +15,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 12px;
+    box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.45);
 }
 
 .grid-number {
     background-color: var(--color-white);
-    padding: 2px 8px;
+    padding: 3px 12px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    font-family: 'Lexend-Light';
-    box-shadow: -2px 2px 7px rgb(74, 74, 74);
+    font-family: 'Lexend-Extra-Light';
+    box-shadow: inset -1px 1px 3px rgba(0, 0, 0, 0.55);
 }
 
 .mini-grid {

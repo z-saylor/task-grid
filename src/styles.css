@@ -9,6 +9,12 @@
     src: url('./fonts/Lexend-VariableFont_wght.ttf');
 }
 
+@font-face {
+    font-family: 'Lexend-Extra-Light';
+    src: url('./fonts/Lexend-VariableFont_wght.ttf');
+    font-weight: 250;
+}
+
 body {
     --color-white: #FFFCF2;
     --color-light-gray: #CCC5B9;
@@ -37,7 +43,7 @@ body {
 
 .header {
     width: 100vw;
-    /*box-shadow: 0px 0px 20px var(--color-light-gray);*/
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.144);
     /*border-bottom: var(--color-light-gray);
     border-bottom-style: solid;
     border-bottom-width: 1.5px;*/
