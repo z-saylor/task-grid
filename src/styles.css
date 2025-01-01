@@ -23,6 +23,7 @@
 
 body {
     --color-white: #FFFCF2;
+    --color-whiter: #fefdf8;
     --color-light-gray: #CCC5B9;
     --color-medium-gray: #69655e;
     --color-dark-gray: #403D39;
@@ -58,7 +59,7 @@ body {
     margin-bottom: 0px;
     display: flex;
     justify-content: center;
-    background-color: var(--color-white);
+    background-color: var(--color-whiter);
 }
 
 .header-content {
