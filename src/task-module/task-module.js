@@ -105,18 +105,6 @@ class TaskList {
             taskDueDiv.textContent = this.list[i].created;
             taskDiv.appendChild(taskDueDiv);
 
-            const taskEditDiv = document.createElement("div");
-            taskEditDiv.classList.add("task-edit");
-            taskEditDiv.dataset.tid = this.list[i].tID;
-            taskEditDiv.innerText = "edit";
-            taskDiv.appendChild(taskEditDiv);
-
-            const taskDeleteDiv = document.createElement("div");
-            taskDeleteDiv.classList.add("task-delete");
-            taskDeleteDiv.dataset.tid = this.list[i].tID;
-            taskDeleteDiv.innerText = "X";
-            taskDiv.appendChild(taskDeleteDiv);
-
             taskContentDiv.appendChild(taskDiv);
         }
         contentDiv.appendChild(taskContentDiv);
