@@ -2,7 +2,8 @@ import "./styles.css";
 import {GridModule} from "./grid-module/grid-module.js";
 import {Task, TaskList} from "./task-module/task-module.js";
 
-GridModule.buildMiniGrid();
+const taskGrid = new GridModule();
+taskGrid.buildMiniGrid();
 
 let currentContent = "tasks";
 
@@ -15,19 +16,16 @@ miniGridDiv.addEventListener("click", (e) => {
         allTasks.displayTasks();
         currentContent = "tasks";
     } else {
-        GridModule.buildGrid();
+        taskGrid.buildGrid();
         currentContent = "grid";
     }
 });
 
 const testTask = new Task("Zach's first task", "low", "med");
-console.log(testTask);
-console.log(testTask.created);
 
 const allTasks = new TaskList();
 allTasks.addTask(testTask);
 allTasks.addTask(new Task("Another Task", "high", "low"));
 allTasks.addTask(new Task("A third Task", "med", "high"));
-console.log(allTasks.getTasks());
 
 allTasks.displayTasks();
