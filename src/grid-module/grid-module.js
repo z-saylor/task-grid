@@ -10,9 +10,23 @@ export class GridModule {
 
     static buildGrid() {
         const contentDiv = document.querySelector(".content");
+        const gridContainerDiv = document.createElement("div");
+        gridContainerDiv.classList.add("grid-module-container");
         const gridDiv = document.createElement("div");
         gridDiv.classList.add("grid-module");
-        contentDiv.appendChild(gridDiv);
+
+        const startHereDiv = document.createElement("div");
+        startHereDiv.classList.add("start-here");
+        const lowerTimeDiv = document.createElement("div");
+        lowerTimeDiv.classList.add("lower-time");
+        const higherImpactDiv = document.createElement("div");
+        higherImpactDiv.classList.add("higher-impact");
+
+        gridContainerDiv.appendChild(startHereDiv);
+        gridContainerDiv.appendChild(lowerTimeDiv);
+        gridContainerDiv.appendChild(higherImpactDiv);
+        gridContainerDiv.appendChild(gridDiv);
+        contentDiv.appendChild(gridContainerDiv);
 
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
