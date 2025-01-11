@@ -36,6 +36,8 @@ addTaskDiv.addEventListener("click", (e) => {
         allTasks.displayTasks();
         currentContent = "tasks";
     });
+
+    
 });
 
 //testing startup

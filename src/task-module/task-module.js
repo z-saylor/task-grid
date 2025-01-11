@@ -116,10 +116,6 @@ class TaskList {
     }
 
     displayAddEditTask(mode = "add", id = null) {
-        //define variables
-        let timeSelection = null;
-        let impactSelection = null;
-        
         const contentDiv = document.querySelector(".content");
         contentDiv.innerHTML = '';
         const formContainerDiv = document.createElement("div");
@@ -166,7 +162,7 @@ class TaskList {
         timeSelectDiv.addEventListener("click", (e) => {
             let timeSelectionUnchecked = e.target.dataset.level;
             if (timeSelectionUnchecked) {
-                timeSelection = timeSelectionUnchecked;
+                timeSelectDiv.dataset.selection = timeSelectionUnchecked;
                 lowTimeDiv.classList.remove("selected");
                 medTimeDiv.classList.remove("selected");
                 highTimeDiv.classList.remove("selected");
@@ -204,7 +200,7 @@ class TaskList {
         impactSelectDiv.addEventListener("click", (e) => {
             let impactSelectionUnchecked = e.target.dataset.level;
             if (impactSelectionUnchecked) {
-                impactSelection = impactSelectionUnchecked;
+                impactSelectDiv.dataset.selection = impactSelectionUnchecked;
                 lowImpactDiv.classList.remove("selected");
                 medImpactDiv.classList.remove("selected");
                 highImpactDiv.classList.remove("selected");
@@ -240,11 +236,8 @@ class TaskList {
             formContainerDiv.appendChild(formfields[i]);
         }
         contentDiv.appendChild(formContainerDiv);
+
         //if edit mode, fill in current
-
-        //save and cancel button logic
-        
-
     }
 
     filterToTaskGrid(grid) {
