@@ -2,10 +2,11 @@ import "./task-module.css";
 import {format} from "date-fns";
 
 class Task {
-    constructor(name, time, impact, dueDate = null) {
+    constructor(name, time, impact, details, dueDate = null) {
         this.name = name;
         this.time = time;
         this.impact = impact;
+        this.details = details;
         this.due = dueDate;
         this.tID = Date.now();
         this.createdDate = new Date();
@@ -114,6 +115,10 @@ class TaskList {
     }
 
     displayAddEditTask(mode = "add", id = null) {
+        //define variables
+        let timeSelection = null;
+        let impactSelection = null;
+        
         const contentDiv = document.querySelector(".content");
         contentDiv.innerHTML = '';
         const formContainerDiv = document.createElement("div");
@@ -127,6 +132,7 @@ class TaskList {
         formfields.push(nameLabelDiv);
         const nameEntryDiv = document.createElement("input");
         nameEntryDiv.classList.add("task-entry-field");
+        nameEntryDiv.classList.add("name-entry-field");
         formfields.push(nameEntryDiv);
 
         const timeLabelDiv = document.createElement("label");
@@ -141,10 +147,13 @@ class TaskList {
         const highTimeDiv = document.createElement("div");
         lowTimeDiv.classList.add("select-option");
         lowTimeDiv.classList.add("low");
+        lowTimeDiv.dataset.level = "low";
         medTimeDiv.classList.add("select-option");
         medTimeDiv.classList.add("med");
+        medTimeDiv.dataset.level = "med";
         highTimeDiv.classList.add("select-option");
         highTimeDiv.classList.add("high");
+        highTimeDiv.dataset.level = "high";
         lowTimeDiv.textContent = "low";
         medTimeDiv.textContent = "med";
         highTimeDiv.textContent = "high";
@@ -152,14 +161,79 @@ class TaskList {
         timeSelectDiv.appendChild(medTimeDiv);
         timeSelectDiv.appendChild(highTimeDiv);
         formfields.push(timeSelectDiv);
-        /*this.name = name;
-        this.time = time;
-        this.impact = impact;
-        this.due = dueDate;
-        this.tID = Date.now();
-        this.createdDate = new Date();
-        this.active = true;
-        this.complete = false;*/
+
+        timeSelectDiv.addEventListener("click", (e) => {
+            let timeSelectionUnchecked = e.target.dataset.level;
+            if (timeSelectionUnchecked) {
+                timeSelection = timeSelectionUnchecked;
+                lowTimeDiv.classList.remove("selected");
+                medTimeDiv.classList.remove("selected");
+                highTimeDiv.classList.remove("selected");
+                e.target.classList.add("selected");
+            }
+        });
+
+        const impactLabelDiv = document.createElement("label");
+        impactLabelDiv.classList.add("task-form-label");
+        impactLabelDiv.textContent = "impact";
+        formfields.push(impactLabelDiv);
+
+        const impactSelectDiv = document.createElement("div");
+        impactSelectDiv.classList.add("impact-select");
+        const lowImpactDiv = document.createElement("div");
+        const medImpactDiv = document.createElement("div");
+        const highImpactDiv = document.createElement("div");
+        lowImpactDiv.classList.add("select-option");
+        lowImpactDiv.classList.add("low");
+        lowImpactDiv.dataset.level = "low";
+        medImpactDiv.classList.add("select-option");
+        medImpactDiv.classList.add("med");
+        medImpactDiv.dataset.level = "med";
+        highImpactDiv.classList.add("select-option");
+        highImpactDiv.classList.add("high");
+        highImpactDiv.dataset.level = "high";
+        lowImpactDiv.textContent = "low";
+        medImpactDiv.textContent = "med";
+        highImpactDiv.textContent = "high";
+        impactSelectDiv.appendChild(lowImpactDiv);
+        impactSelectDiv.appendChild(medImpactDiv);
+        impactSelectDiv.appendChild(highImpactDiv);
+        formfields.push(impactSelectDiv);
+
+        impactSelectDiv.addEventListener("click", (e) => {
+            let impactSelectionUnchecked = e.target.dataset.level;
+            if (impactSelectionUnchecked) {
+                impactSelection = impactSelectionUnchecked;
+                lowImpactDiv.classList.remove("selected");
+                medImpactDiv.classList.remove("selected");
+                highImpactDiv.classList.remove("selected");
+                e.target.classList.add("selected");
+            }
+        });
+
+        const detailsLabelDiv = document.createElement("label");
+        detailsLabelDiv.classList.add("task-form-label");
+        detailsLabelDiv.textContent = "details";
+        formfields.push(detailsLabelDiv);
+        const detailsEntryDiv = document.createElement("textarea");
+        detailsEntryDiv.classList.add("task-entry-field");
+        detailsEntryDiv.classList.add("details-entry-field");
+        detailsEntryDiv.setAttribute("rows", "10");
+        formfields.push(detailsEntryDiv);
+
+        const buttonsDiv = document.createElement("div");
+        buttonsDiv.classList.add("task-buttons");
+        const cancelButtonDiv = document.createElement("div");
+        cancelButtonDiv.classList.add("task-module-button");
+        cancelButtonDiv.textContent = "cancel";
+        const saveButtonDiv = document.createElement("div");
+        saveButtonDiv.classList.add("task-module-button");
+        saveButtonDiv.classList.add("save-button");
+        saveButtonDiv.textContent = "save";
+        buttonsDiv.appendChild(cancelButtonDiv);
+        buttonsDiv.appendChild(saveButtonDiv);
+        formfields.push(buttonsDiv);
+        
         for (let i in formfields) {
             formContainerDiv.appendChild(formfields[i]);
         }

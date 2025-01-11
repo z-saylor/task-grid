@@ -88,13 +88,21 @@
     border-color: var(--color-medium-gray);
     border-width: 1.5px;
     border-style: solid;
-    font-size: 18px;
     color: var(--color-dark-gray);
     text-align: center;
     font-family: 'Lexend-Regular';
 }
 
-.time-select {
+.task-entry-field.name-entry-field {
+    font-family: 'Lexend-Heavy';
+    font-size: 18px;
+}
+
+.task-entry-field.details-entry-field {
+    font-size: 14px;
+}
+
+.time-select, .impact-select {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border-radius: 9.5px;
@@ -109,6 +117,7 @@
     border-left-color: var(--color-medium-gray);
     background-color: var(--color-whiter);
     cursor: pointer;
+    font-family: 'Lexend-Light';
 }
 
 .select-option.med, .select-option.high {
@@ -122,20 +131,57 @@
     border-radius: 0px 8px 8px 0px;
 }
 
-.time-select > .select-option.low:hover, .time-select > .select-option.low.selected{
+.time-select > .select-option.low:hover, 
+.time-select > .select-option.low.selected,
+.impact-select > .select-option.high:hover, 
+.impact-select > .select-option.high.selected{
     background-color: var(--color-theme-four);
     color: var(--color-whiter);
-    font-family: 'Lexend-Heavy';
+    font-family: 'Lexend-Regular';
 }
 
-.time-select > .select-option.med:hover, .time-select > .select-option.med.selected{
+.select-option.med:hover, 
+.select-option.med.selected{
     background-color: var(--color-light-gray);
     color: var(--color-dark-gray);
-    font-family: 'Lexend-Heavy';
+    font-family: 'Lexend-Regular';
 }
 
-.time-select > .select-option.high:hover, .time-select > .select-option.high.selected{
+.time-select > .select-option.high:hover, 
+.time-select > .select-option.high.selected,
+.impact-select > .select-option.low:hover, 
+.impact-select > .select-option.low.selected{
     background-color: var(--color-dark-gray);
     color: var(--color-whiter);
-    font-family: 'Lexend-Heavy';
+    font-family: 'Lexend-Regular';
+}
+
+.details-entry-field {
+    resize: none;
+    text-align: left;
+}
+
+.task-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.task-module-button {
+    cursor: pointer;
+    background-color: var(--color-light-gray);
+    color: var(--color-black);
+    padding: 8px 16px;
+    border-radius: 4px;
+    width: 80px;
+    text-align: center;
+}
+.task-module-button:hover {
+    transform: scale(1.1);
+    background-color: var(--color-medium-gray);
+    color: var(--color-white);
+}
+
+.task-module-button.save-button {
+    background-color: var(--color-theme-four);
 }
