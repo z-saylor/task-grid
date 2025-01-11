@@ -44,14 +44,14 @@
     border-radius: 2px;
 }
 .task-checkbox:hover {
-    background-color: var(--color-light-gray);
+    border-width: 2.5px;
 }
 
 .task-name {
     font-size: 15px;
 }
 
-.low {
+.task-impact.low, .task-time.high {
     color: var(--color-light-gray);
     font-size: 14px;
 }
@@ -59,13 +59,8 @@
     color: var(--color-medium-gray);
     font-size: 14px;
 }
-.high {
-    color: var(--color-theme-two);
+.task-impact.high, .task-time.low {
+    color: var(--color-theme-four);
     font-family: 'Lexend-Heavy';
     font-size: 14px;
-}
-
-.task-edit:hover {
-    transform: scale(1.1);
-    color: var(--color-dark-gray);
 }

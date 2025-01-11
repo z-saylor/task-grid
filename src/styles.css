@@ -80,7 +80,6 @@ body {
     color: var(--color-white);
     padding: 4px 8px;
     border-radius: 4px;
-    
 }
 .add-task:hover {
     background-color: var(--color-theme-two);

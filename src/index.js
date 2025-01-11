@@ -13,6 +13,7 @@ const miniGridDiv = document.querySelector(".mini-grid");
 miniGridDiv.addEventListener("click", (e) => {
     contentDiv.innerHTML = "";
     if (currentContent == "grid") {
+        allTasks.filterToTaskGrid(taskGrid.getGrid());
         allTasks.displayTasks();
         currentContent = "tasks";
     } else {
@@ -28,4 +29,5 @@ allTasks.addTask(testTask);
 allTasks.addTask(new Task("Another Task", "high", "low"));
 allTasks.addTask(new Task("A third Task", "med", "high"));
 
+allTasks.filterToTaskGrid(taskGrid.getGrid());
 allTasks.displayTasks();

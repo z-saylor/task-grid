@@ -74,40 +74,60 @@ class TaskList {
         //create list with all tasks flagged active
 
         for (let i in this.list) {
-            const taskDiv = document.createElement("div");
-            taskDiv.dataset.tid = this.list[i].tID;
-            taskDiv.classList.add("task");
+            if (this.list[i].active) {
+                const taskDiv = document.createElement("div");
+                taskDiv.dataset.tid = this.list[i].tID;
+                taskDiv.classList.add("task");
 
-            const checkboxDiv = document.createElement("div");
-            checkboxDiv.classList.add("task-checkbox");
-            checkboxDiv.dataset.tid = this.list[i].tID;
-            taskDiv.appendChild(checkboxDiv);
+                const checkboxDiv = document.createElement("div");
+                checkboxDiv.classList.add("task-checkbox");
+                checkboxDiv.dataset.tid = this.list[i].tID;
+                taskDiv.appendChild(checkboxDiv);
 
-            const taskNameDiv = document.createElement("div");
-            taskNameDiv.classList.add("task-name");
-            taskNameDiv.textContent = this.list[i].name;
-            taskDiv.appendChild(taskNameDiv);
+                const taskNameDiv = document.createElement("div");
+                taskNameDiv.classList.add("task-name");
+                taskNameDiv.textContent = this.list[i].name;
+                taskDiv.appendChild(taskNameDiv);
 
-            const taskTimeDiv = document.createElement("div");
-            taskTimeDiv.classList.add("task-time");
-            taskTimeDiv.classList.add(this.list[i].time);
-            taskTimeDiv.textContent = this.list[i].time;
-            taskDiv.appendChild(taskTimeDiv);
+                const taskTimeDiv = document.createElement("div");
+                taskTimeDiv.classList.add("task-time");
+                taskTimeDiv.classList.add(this.list[i].time);
+                taskTimeDiv.textContent = this.list[i].time;
+                taskDiv.appendChild(taskTimeDiv);
 
-            const taskImpactDiv = document.createElement("div");
-            taskImpactDiv.classList.add("task-impact");
-            taskImpactDiv.classList.add(this.list[i].impact);
-            taskImpactDiv.textContent = this.list[i].impact;
-            taskDiv.appendChild(taskImpactDiv);
+                const taskImpactDiv = document.createElement("div");
+                taskImpactDiv.classList.add("task-impact");
+                taskImpactDiv.classList.add(this.list[i].impact);
+                taskImpactDiv.textContent = this.list[i].impact;
+                taskDiv.appendChild(taskImpactDiv);
 
-            const taskDueDiv = document.createElement("div");
-            taskDueDiv.classList.add("task-due");
-            taskDueDiv.textContent = this.list[i].created;
-            taskDiv.appendChild(taskDueDiv);
+                const taskDueDiv = document.createElement("div");
+                taskDueDiv.classList.add("task-due");
+                taskDueDiv.textContent = this.list[i].created;
+                taskDiv.appendChild(taskDueDiv);
 
-            taskContentDiv.appendChild(taskDiv);
+                taskContentDiv.appendChild(taskDiv);
+            }
+            
         }
         contentDiv.appendChild(taskContentDiv);
+    }
+
+    filterToTaskGrid(grid) {
+        const timeMap = {"low":0, "med": 1, "high": 2};
+        const impactMap = {"low": 2, "med": 1, "high": 0};
+
+        for (let i in this.list) {
+            if (grid[impactMap[this.list[i].impact]][timeMap[this.list[i].time]]) {
+                this.list[i].active = true;
+            } else {
+                this.list[i].active = false;
+            }
+        }
+    }
+
+    filterCompleted(option) {
+        //filter to completed if true, filter to uncompleted if false
     }
 }
 
