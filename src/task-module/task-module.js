@@ -2,7 +2,7 @@ import "./task-module.css";
 import {format} from "date-fns";
 
 class Task {
-    constructor(name, time, impact, details, dueDate = null) {
+    constructor(name, time, impact, details = null, dueDate = null) {
         this.name = name;
         this.time = time;
         this.impact = impact;
@@ -50,6 +50,7 @@ class TaskList {
 
     displayTasks() {
         const contentDiv = document.querySelector(".content");
+        contentDiv.innerHTML = '';
         const taskContentDiv = document.createElement("div");
         taskContentDiv.classList.add("task-content");
 
@@ -225,6 +226,7 @@ class TaskList {
         buttonsDiv.classList.add("task-buttons");
         const cancelButtonDiv = document.createElement("div");
         cancelButtonDiv.classList.add("task-module-button");
+        cancelButtonDiv.classList.add("cancel-button");
         cancelButtonDiv.textContent = "cancel";
         const saveButtonDiv = document.createElement("div");
         saveButtonDiv.classList.add("task-module-button");
@@ -239,10 +241,9 @@ class TaskList {
         }
         contentDiv.appendChild(formContainerDiv);
         //if edit mode, fill in current
+
+        //save and cancel button logic
         
-
-        //save and cancel buttons with logic
-
 
     }
 

@@ -29,9 +29,14 @@ miniGridDiv.addEventListener("click", (e) => {
 addTaskDiv.addEventListener("click", (e) => {
     contentDiv.innerHTML = "";
     allTasks.displayAddEditTask();
+
+    const cancelButtonDiv = document.querySelector(".cancel-button");
+    cancelButtonDiv.addEventListener("click", (e) => {
+        allTasks.filterToTaskGrid(taskGrid.getGrid());
+        allTasks.displayTasks();
+        currentContent = "tasks";
+    });
 });
-
-
 
 //testing startup
 allTasks.addTask(testTask);

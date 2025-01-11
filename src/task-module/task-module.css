@@ -87,10 +87,18 @@
     background-color: var(--color-whiter);
     border-color: var(--color-medium-gray);
     border-width: 1.5px;
-    border-style: solid;
+    border-style: none;
     color: var(--color-dark-gray);
     text-align: center;
     font-family: 'Lexend-Regular';
+}
+
+.task-entry-field:focus {
+    outline: none;
+}
+
+.task-entry-field, .time-select, .impact-select {
+    box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.12);
 }
 
 .task-entry-field.name-entry-field {
@@ -100,6 +108,8 @@
 
 .task-entry-field.details-entry-field {
     font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .time-select, .impact-select {
@@ -108,19 +118,22 @@
     border-radius: 9.5px;
     border-width: 1.5px;
     border-color: var(--color-medium-gray);
-    border-style: solid;
+    border-style: none;
 }
 
 .select-option {
     padding: 5px 10px;
     text-align: center;
-    border-left-color: var(--color-medium-gray);
+    border-color: var(--color-light-gray); 
     background-color: var(--color-whiter);
     cursor: pointer;
     font-family: 'Lexend-Light';
 }
 
-.select-option.med, .select-option.high {
+.select-option.low {
+    border-right-style: solid;
+}
+.select-option.high {
     border-left-style: solid;
 }
 
@@ -136,6 +149,7 @@
 .impact-select > .select-option.high:hover, 
 .impact-select > .select-option.high.selected{
     background-color: var(--color-theme-four);
+    border-color: var(--color-theme-four);
     color: var(--color-whiter);
     font-family: 'Lexend-Regular';
 }
@@ -152,6 +166,7 @@
 .impact-select > .select-option.low:hover, 
 .impact-select > .select-option.low.selected{
     background-color: var(--color-dark-gray);
+    border-color: var(--color-dark-gray);
     color: var(--color-whiter);
     font-family: 'Lexend-Regular';
 }
