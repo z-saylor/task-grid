@@ -55,7 +55,7 @@
     color: var(--color-light-gray);
     font-size: 14px;
 }
-.med {
+.task-impact.med, .task-time.med{
     color: var(--color-medium-gray);
     font-size: 14px;
 }
@@ -63,4 +63,79 @@
     color: var(--color-theme-four);
     font-family: 'Lexend-Heavy';
     font-size: 14px;
+}
+
+.form-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 20px;
+}
+
+.task-form-label {
+    margin-top: 30px;
+    color: var(--color-dark-gray);
+    font-family: 'Lexend-Regular';
+    text-align: center;
+    font-size: 14px;
+}
+
+.task-entry-field {
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: var(--color-whiter);
+    border-color: var(--color-medium-gray);
+    border-width: 1.5px;
+    border-style: solid;
+    font-size: 18px;
+    color: var(--color-dark-gray);
+    text-align: center;
+    font-family: 'Lexend-Regular';
+}
+
+.time-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 9.5px;
+    border-width: 1.5px;
+    border-color: var(--color-medium-gray);
+    border-style: solid;
+}
+
+.select-option {
+    padding: 5px 10px;
+    text-align: center;
+    border-left-color: var(--color-medium-gray);
+    background-color: var(--color-whiter);
+    cursor: pointer;
+}
+
+.select-option.med, .select-option.high {
+    border-left-style: solid;
+}
+
+.select-option.low {
+    border-radius: 8px 0px 0px 8px;
+}
+.select-option.high {
+    border-radius: 0px 8px 8px 0px;
+}
+
+.time-select > .select-option.low:hover, .time-select > .select-option.low.selected{
+    background-color: var(--color-theme-four);
+    color: var(--color-whiter);
+    font-family: 'Lexend-Heavy';
+}
+
+.time-select > .select-option.med:hover, .time-select > .select-option.med.selected{
+    background-color: var(--color-light-gray);
+    color: var(--color-dark-gray);
+    font-family: 'Lexend-Heavy';
+}
+
+.time-select > .select-option.high:hover, .time-select > .select-option.high.selected{
+    background-color: var(--color-dark-gray);
+    color: var(--color-whiter);
+    font-family: 'Lexend-Heavy';
 }

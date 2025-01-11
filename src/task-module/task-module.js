@@ -113,6 +113,65 @@ class TaskList {
         contentDiv.appendChild(taskContentDiv);
     }
 
+    displayAddEditTask(mode = "add", id = null) {
+        const contentDiv = document.querySelector(".content");
+        contentDiv.innerHTML = '';
+        const formContainerDiv = document.createElement("div");
+        formContainerDiv.classList.add("form-container");
+
+        let formfields = [];
+        //create all the entries
+        const nameLabelDiv = document.createElement("label");
+        nameLabelDiv.classList.add("task-form-label");
+        nameLabelDiv.textContent = "name";
+        formfields.push(nameLabelDiv);
+        const nameEntryDiv = document.createElement("input");
+        nameEntryDiv.classList.add("task-entry-field");
+        formfields.push(nameEntryDiv);
+
+        const timeLabelDiv = document.createElement("label");
+        timeLabelDiv.classList.add("task-form-label");
+        timeLabelDiv.textContent = "time to complete";
+        formfields.push(timeLabelDiv);
+
+        const timeSelectDiv = document.createElement("div");
+        timeSelectDiv.classList.add("time-select");
+        const lowTimeDiv = document.createElement("div");
+        const medTimeDiv = document.createElement("div");
+        const highTimeDiv = document.createElement("div");
+        lowTimeDiv.classList.add("select-option");
+        lowTimeDiv.classList.add("low");
+        medTimeDiv.classList.add("select-option");
+        medTimeDiv.classList.add("med");
+        highTimeDiv.classList.add("select-option");
+        highTimeDiv.classList.add("high");
+        lowTimeDiv.textContent = "low";
+        medTimeDiv.textContent = "med";
+        highTimeDiv.textContent = "high";
+        timeSelectDiv.appendChild(lowTimeDiv);
+        timeSelectDiv.appendChild(medTimeDiv);
+        timeSelectDiv.appendChild(highTimeDiv);
+        formfields.push(timeSelectDiv);
+        /*this.name = name;
+        this.time = time;
+        this.impact = impact;
+        this.due = dueDate;
+        this.tID = Date.now();
+        this.createdDate = new Date();
+        this.active = true;
+        this.complete = false;*/
+        for (let i in formfields) {
+            formContainerDiv.appendChild(formfields[i]);
+        }
+        contentDiv.appendChild(formContainerDiv);
+        //if edit mode, fill in current
+        
+
+        //save and cancel buttons with logic
+
+
+    }
+
     filterToTaskGrid(grid) {
         const timeMap = {"low":0, "med": 1, "high": 2};
         const impactMap = {"low": 2, "med": 1, "high": 0};
