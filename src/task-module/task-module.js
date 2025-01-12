@@ -46,9 +46,26 @@ class Task {
 }
 
 class TaskList {
-    constructor(existingList) {
-        this.list = existingList ? existingList : [];
+    constructor() {
+        this.list = [];
 
+        //check memory for stored tasks
+        const localStorageList = localStorage.getItem("9Box-task-list");
+        if (localStorageList) {
+            let storedList = JSON.parse(localStorageList);
+            for (let i in storedList) {
+                this.addTask(new Task(
+                    storedList[i].name, 
+                    storedList[i].time, 
+                    storedList[i].impact, 
+                    storedList[i].details, 
+                    storedList[i].createdDate, 
+                    storedList[i].active, 
+                    storedList[i].completed
+                ));
+            }
+        }
+        
         this.taskCompletedEvent = new Event("task-completed");
     }
 
@@ -57,6 +74,10 @@ class TaskList {
     }
     getTasks() {
         return this.list;
+    }
+
+    save() {
+        localStorage.setItem("9Box-task-list", JSON.stringify(this.list));
     }
 
     displayTasks(includeCompleted = false) {

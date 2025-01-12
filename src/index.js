@@ -9,11 +9,7 @@ const allTasks = new TaskList();
 
 let currentContent = "tasks";
 
-//testing startup
-allTasks.addTask(new Task("Zach's first task", "low", "med"));
-allTasks.addTask(new Task("Zach's second task", "high", "high"));
-
-//actual startup
+//startup
 allTasks.filterToTaskGrid(taskGrid.getGrid());
 allTasks.displayTasks();
 
@@ -64,6 +60,7 @@ addTaskDiv.addEventListener("click", (e) => {
             allTasks.filterToTaskGrid(taskGrid.getGrid());
             allTasks.displayTasks();
             currentContent = "tasks";
+            allTasks.save();
         } else {
             alert("impact and time are REQUIRED");
         }
@@ -81,6 +78,7 @@ document.addEventListener("task-completed", (e) => {
     allTasks.filterToTaskGrid(taskGrid.getGrid());
     allTasks.displayTasks();
     currentContent = "tasks";
+    allTasks.save();
 });
 
 document.addEventListener("task-clicked", (event) => {
@@ -123,6 +121,7 @@ document.addEventListener("task-clicked", (event) => {
             allTasks.filterToTaskGrid(taskGrid.getGrid());
             allTasks.displayTasks();
             currentContent = "tasks";
+            allTasks.save();
         } else {
             alert("impact and time are REQUIRED");
         }
