@@ -10,7 +10,7 @@ class Task {
         this.tID = Date.now();
         this.createdDate = new Date();
         this.active = true;
-        this.complete = false;
+        this.completed = false;
     }
 
     get due() {
@@ -30,7 +30,9 @@ class Task {
     get created() {
         return format(this.createdDate, "MM/dd/yyyy");
     }
-
+    toggleCompleted() {
+        this.completed = !this.completed;
+    }
 }
 
 class TaskList {
@@ -47,7 +49,7 @@ class TaskList {
         return this.list;
     }
 
-    displayTasks() {
+    displayTasks(includeCompleted = false) {
         const contentDiv = document.querySelector(".content");
         contentDiv.innerHTML = '';
         const taskContentDiv = document.createElement("div");
@@ -75,7 +77,8 @@ class TaskList {
         //create list with all tasks flagged active
 
         for (let i in this.list) {
-            if (this.list[i].active) {
+            if (this.list[i].active && 
+                this.list[i].completed == includeCompleted) {
                 const taskDiv = document.createElement("div");
                 taskDiv.dataset.tid = this.list[i].tID;
                 taskDiv.classList.add("task");
@@ -108,6 +111,11 @@ class TaskList {
                 taskDiv.appendChild(taskDueDiv);
 
                 taskContentDiv.appendChild(taskDiv);
+
+                checkboxDiv.addEventListener("click",(e) => {
+                    this.list[i].toggleCompleted();
+                    checkboxDiv.innerText = "X";
+                });
             }
             
         }
@@ -252,9 +260,6 @@ class TaskList {
         }
     }
 
-    filterCompleted(option) {
-        //filter to completed if true, filter to uncompleted if false
-    }
 }
 
 export {Task, TaskList}

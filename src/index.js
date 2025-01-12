@@ -5,10 +5,17 @@ import {Task, TaskList} from "./task-module/task-module.js";
 const taskGrid = new GridModule();
 taskGrid.buildMiniGrid();
 
-const testTask = new Task("Zach's first task", "low", "med");
 const allTasks = new TaskList();
 
 let currentContent = "tasks";
+
+//testing startup
+allTasks.addTask(new Task("Zach's first task", "low", "med"));
+allTasks.addTask(new Task("Zach's first task", "low", "med"));
+
+//actual startup
+allTasks.filterToTaskGrid(taskGrid.getGrid());
+allTasks.displayTasks();
 
 const contentDiv = document.querySelector(".content");
 const miniGridDiv = document.querySelector(".mini-grid");
@@ -64,11 +71,3 @@ logoDiv.addEventListener("click", (e) => {
     currentContent = "tasks";
 });
 
-//testing startup
-allTasks.addTask(testTask);
-allTasks.addTask(new Task("Another Task", "high", "low"));
-allTasks.addTask(new Task("A third Task", "med", "high"));
-
-//actual startup
-allTasks.filterToTaskGrid(taskGrid.getGrid());
-allTasks.displayTasks();
