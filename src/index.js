@@ -37,7 +37,21 @@ addTaskDiv.addEventListener("click", (e) => {
         currentContent = "tasks";
     });
 
-    
+    const saveButtonDiv = document.querySelector(".save-button");
+    const nameEntryDiv = document.querySelector(".name-entry-field");
+    const timeSelectDiv = document.querySelector(".time-select");
+    const impactSelectDiv = document.querySelector(".impact-select");
+
+    saveButtonDiv.addEventListener("click", (e) => {
+        console.log(nameEntryDiv.value);
+        allTasks.addTask(new Task(
+            nameEntryDiv.value,
+            timeSelectDiv.dataset.selection,
+            impactSelectDiv.dataset.selection));
+        allTasks.filterToTaskGrid(taskGrid.getGrid());
+        allTasks.displayTasks();
+        currentContent = "tasks";
+    });
 });
 
 //testing startup
