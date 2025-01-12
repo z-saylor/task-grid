@@ -53,15 +53,21 @@ addTaskDiv.addEventListener("click", (e) => {
 
     saveButtonDiv.addEventListener("click", (e) => {
         console.log(nameEntryDiv.value);
-        allTasks.addTask(new Task(
-            nameEntryDiv.value,
-            timeSelectDiv.dataset.selection,
-            impactSelectDiv.dataset.selection),
-            detailsEntryDiv.value);
-        allTasks.filterToTaskGrid(taskGrid.getGrid());
-        allTasks.displayTasks();
-        currentContent = "tasks";
-        alert(detailsEntryDiv.value);
+        if (timeSelectDiv.dataset.selection 
+            && impactSelectDiv.dataset.selection
+        ) {
+            allTasks.addTask(new Task(
+                nameEntryDiv.value,
+                timeSelectDiv.dataset.selection,
+                impactSelectDiv.dataset.selection),
+                detailsEntryDiv.value);
+            allTasks.filterToTaskGrid(taskGrid.getGrid());
+            allTasks.displayTasks();
+            currentContent = "tasks";
+        } else {
+            alert("impact and time are REQUIRED");
+        }
+        
     });
 });
 
@@ -70,4 +76,3 @@ logoDiv.addEventListener("click", (e) => {
     allTasks.displayTasks();
     currentContent = "tasks";
 });
-

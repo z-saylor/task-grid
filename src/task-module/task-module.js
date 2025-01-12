@@ -117,7 +117,6 @@ class TaskList {
                     checkboxDiv.innerText = "X";
                 });
             }
-            
         }
         contentDiv.appendChild(taskContentDiv);
     }
