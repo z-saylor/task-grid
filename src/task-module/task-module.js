@@ -7,7 +7,6 @@ class Task {
         this.time = time;
         this.impact = impact;
         this.details = details;
-        this.due = dueDate;
         this.tID = Date.now();
         this.createdDate = new Date();
         this.active = true;
@@ -68,7 +67,7 @@ class TaskList {
         impactHeaderDiv.textContent = "Impact";
         taskHeaderDiv.appendChild(impactHeaderDiv);
         const dueHeaderDiv = document.createElement("div");
-        dueHeaderDiv.textContent = "Due";
+        dueHeaderDiv.textContent = "Created";
         taskHeaderDiv.appendChild(dueHeaderDiv);
         
         taskContentDiv.appendChild(taskHeaderDiv);

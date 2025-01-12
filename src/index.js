@@ -41,16 +41,19 @@ addTaskDiv.addEventListener("click", (e) => {
     const nameEntryDiv = document.querySelector(".name-entry-field");
     const timeSelectDiv = document.querySelector(".time-select");
     const impactSelectDiv = document.querySelector(".impact-select");
+    const detailsEntryDiv = document.querySelector(".details-entry-field");
 
     saveButtonDiv.addEventListener("click", (e) => {
         console.log(nameEntryDiv.value);
         allTasks.addTask(new Task(
             nameEntryDiv.value,
             timeSelectDiv.dataset.selection,
-            impactSelectDiv.dataset.selection));
+            impactSelectDiv.dataset.selection),
+            detailsEntryDiv.value);
         allTasks.filterToTaskGrid(taskGrid.getGrid());
         allTasks.displayTasks();
         currentContent = "tasks";
+        alert(detailsEntryDiv.value);
     });
 });
 
@@ -58,6 +61,7 @@ addTaskDiv.addEventListener("click", (e) => {
 allTasks.addTask(testTask);
 allTasks.addTask(new Task("Another Task", "high", "low"));
 allTasks.addTask(new Task("A third Task", "med", "high"));
+
 
 //actual startup
 allTasks.filterToTaskGrid(taskGrid.getGrid());
