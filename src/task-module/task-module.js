@@ -2,7 +2,17 @@ import "./task-module.css";
 import {format} from "date-fns";
 
 class Task {
-    constructor(name, time, impact, details = null, dueDate = null) {
+    constructor(name, time, impact, details = null, createdDate = new Date(), active = true, completed = false) {
+        this.name = name;
+        this.time = time;
+        this.impact = impact;
+        this.details = details;
+        this.tID = Date.now();
+        this.createdDate = createdDate;
+        this.active = active;
+        this.completed = completed;
+    }
+    update(name, time, impact, details = null) {
         this.name = name;
         this.time = time;
         this.impact = impact;
@@ -39,7 +49,7 @@ class TaskList {
     constructor(existingList) {
         this.list = existingList ? existingList : [];
 
-        //set all tasks as active?
+        this.taskCompletedEvent = new Event("task-completed");
     }
 
     addTask(task) {
@@ -113,8 +123,16 @@ class TaskList {
                 taskContentDiv.appendChild(taskDiv);
 
                 checkboxDiv.addEventListener("click",(e) => {
+                    e.stopPropagation();
                     this.list[i].toggleCompleted();
-                    checkboxDiv.innerText = "X";
+                    document.dispatchEvent(this.taskCompletedEvent);
+                });
+
+                const taskClickedEvent = new CustomEvent("task-clicked");
+                taskClickedEvent.task = {task: this.list[i]}
+
+                taskDiv.addEventListener("click", (e) => {
+                    document.dispatchEvent(taskClickedEvent);
                 });
             }
         }

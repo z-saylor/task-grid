@@ -47,7 +47,7 @@ export class GridModule {
                 if (this.grid[i][j] == true) {
                     gridCellDiv.classList.add("active");
                 }
-                gridNumberDiv.textContent = ((i+4)*j).toString();
+                gridNumberDiv.textContent = '';
                 gridCellDiv.appendChild(gridNumberDiv);
                 gridDiv.appendChild(gridCellDiv);
 
