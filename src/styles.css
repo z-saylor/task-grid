@@ -89,6 +89,7 @@ body {
 
 .logo h1 {
     font-family: 'Lexend-Regular';
+    cursor: pointer;
 }
 
 .content-container {

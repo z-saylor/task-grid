@@ -13,6 +13,7 @@ let currentContent = "tasks";
 const contentDiv = document.querySelector(".content");
 const miniGridDiv = document.querySelector(".mini-grid");
 const addTaskDiv = document.querySelector(".add-task");
+const logoDiv = document.querySelector(".logo > h1");
 
 miniGridDiv.addEventListener("click", (e) => {
     contentDiv.innerHTML = "";
@@ -57,11 +58,16 @@ addTaskDiv.addEventListener("click", (e) => {
     });
 });
 
+logoDiv.addEventListener("click", (e) => {
+    allTasks.filterToTaskGrid(taskGrid.getGrid());
+    allTasks.displayTasks();
+    currentContent = "tasks";
+});
+
 //testing startup
 allTasks.addTask(testTask);
 allTasks.addTask(new Task("Another Task", "high", "low"));
 allTasks.addTask(new Task("A third Task", "med", "high"));
-
 
 //actual startup
 allTasks.filterToTaskGrid(taskGrid.getGrid());
